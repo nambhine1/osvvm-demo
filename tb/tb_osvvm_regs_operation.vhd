@@ -46,8 +46,6 @@ begin
         variable addr           : std_logic_vector(31 downto 0);
         variable wdata          : std_logic_vector(31 downto 0);
         variable rdata          : std_logic_vector(31 downto 0);
-        variable actual_value   : std_logic_vector(STATUS_VALUE_BIT_WIDTH - 1 downto 0);
-        variable expected_value : std_logic_vector(CONTROL_VALUE_BIT_WIDTH - 1 downto 0);
     begin
         -- Initialization of test
         SetAlertLogName("tb_osvvm_regs_operation");

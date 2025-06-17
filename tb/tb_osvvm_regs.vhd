@@ -33,8 +33,6 @@ context OSVVM.OsvvmContext;
 library osvvm_axi4;
 context osvvm_axi4.Axi4LiteContext;
 
-use work.osvvm_regs_pkg.all;
-
 entity tb_regs_osvvm is
 end entity tb_regs_osvvm;
 
