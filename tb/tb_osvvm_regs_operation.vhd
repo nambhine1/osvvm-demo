@@ -68,11 +68,6 @@ begin
         Log("Read Status register");
         Read(Axi4MemRec, addr, rdata);
 
-        -- Extract field value from register value
-        --actual_value   := rdata(STATUS_VALUE_BIT_WIDTH + STATUS_VALUE_BIT_OFFSET - 1 downto STATUS_VALUE_BIT_OFFSET);
-        --expected_value := wdata(CONTROL_VALUE_BIT_OFFSET + CONTROL_VALUE_BIT_WIDTH - 1 downto CONTROL_VALUE_BIT_OFFSET);
-
-        -- Compare write and read field values
         AffirmIfEqual(x"00001234", rdata, "read data");
 
         EndOfTestReports;

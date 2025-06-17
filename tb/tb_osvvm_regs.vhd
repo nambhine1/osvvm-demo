@@ -136,41 +136,6 @@ begin
     -- Unit under test
     ------------------------------------------------------------------------------------------------
 
-   /*  uut : entity work.osvvm_regs
-        generic map(
-            AXI_ADDR_WIDTH => AXI_ADDR_WIDTH,
-            BASEADDR       => REGS_BASEADDR
-        )
-        port map(
-            axi_aclk       => axi_aclk,
-            axi_aresetn    => axi_aresetn,
-            s_axi_awaddr   => Axi4LiteBus.WriteAddress.Addr,
-            s_axi_awprot   => Axi4LiteBus.WriteAddress.Prot,
-            s_axi_awvalid  => Axi4LiteBus.WriteAddress.Valid,
-            s_axi_awready  => Axi4LiteBus.WriteAddress.Ready,
-            s_axi_wdata    => Axi4LiteBus.WriteData.Data,
-            s_axi_wstrb    => Axi4LiteBus.WriteData.Strb,
-            s_axi_wvalid   => Axi4LiteBus.WriteData.Valid,
-            s_axi_wready   => Axi4LiteBus.WriteData.Ready,
-            s_axi_araddr   => Axi4LiteBus.ReadAddress.Addr,
-            s_axi_arprot   => Axi4LiteBus.ReadAddress.Prot,
-            s_axi_arvalid  => Axi4LiteBus.ReadAddress.Valid,
-            s_axi_arready  => Axi4LiteBus.ReadAddress.Ready,
-            s_axi_rdata    => Axi4LiteBus.ReadData.Data,
-            s_axi_rresp    => Axi4LiteBus.ReadData.Resp,
-            s_axi_rvalid   => Axi4LiteBus.ReadData.Valid,
-            s_axi_rready   => Axi4LiteBus.ReadData.Ready,
-            s_axi_bresp    => Axi4LiteBus.WriteResponse.Resp,
-            s_axi_bvalid   => Axi4LiteBus.WriteResponse.Valid,
-            s_axi_bready   => Axi4LiteBus.WriteResponse.Ready,
-            control_strobe => open,
-            control_value  => control_value,
-            status_strobe  => open,
-            status_value   => status_value
-        ); */
-
-    -- Control.value to Status.value loopback
-    --status_value <= control_value;
 	    uut : entity work.olo_axi_lite_ram_wrapper
         generic map (
             C_S00_AXI_DATA_WIDTH => 32,
