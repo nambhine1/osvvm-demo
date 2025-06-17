@@ -1,2 +1,2 @@
-analyze osvvm_regs_pkg.vhd
-analyze osvvm_regs.vhd
+analyze olo_axi_lite_slave.vhd
+analyze olo_axi_lite_ram_wrapper.vhd

@@ -74,8 +74,8 @@ architecture TestHarness of tb_regs_osvvm is
 
     signal axi_aclk      : std_logic := '0';
     signal axi_aresetn   : std_logic;
-    signal control_value : std_logic_vector(15 downto 0);
-    signal status_value  : std_logic_vector(15 downto 0);
+    --signal control_value : std_logic_vector(15 downto 0);
+    --signal status_value  : std_logic_vector(15 downto 0);
     signal Axi4LiteBus   : Axi4LiteRecType(
         WriteAddress(Addr(AXI_ADDR_WIDTH - 1 downto 0)),
         WriteData(Data(AXI_DATA_WIDTH - 1 downto 0), Strb(AXI_STRB_WIDTH - 1 downto 0)),
@@ -144,7 +144,7 @@ begin
     -- Unit under test
     ------------------------------------------------------------------------------------------------
 
-    uut : entity work.osvvm_regs
+   /*  uut : entity work.osvvm_regs
         generic map(
             AXI_ADDR_WIDTH => AXI_ADDR_WIDTH,
             BASEADDR       => REGS_BASEADDR
@@ -175,9 +175,38 @@ begin
             control_value  => control_value,
             status_strobe  => open,
             status_value   => status_value
-        );
+        ); */
 
     -- Control.value to Status.value loopback
-    status_value <= control_value;
+    --status_value <= control_value;
+	    uut : entity work.olo_axi_lite_ram_wrapper
+        generic map (
+            C_S00_AXI_DATA_WIDTH => 32,
+            C_S00_AXI_ADDR_WIDTH => AXI_ADDR_WIDTH
+        )
+        port map (
+            s00_axi_aclk    => axi_aclk,
+            s00_axi_aresetn => axi_aresetn,
+            s00_axi_awaddr  => Axi4LiteBus.WriteAddress.Addr,
+            s00_axi_awprot  => Axi4LiteBus.WriteAddress.Prot,
+            s00_axi_awvalid => Axi4LiteBus.WriteAddress.Valid,
+            s00_axi_awready => Axi4LiteBus.WriteAddress.Ready,
+            s00_axi_wdata   => Axi4LiteBus.WriteData.Data,
+            s00_axi_wstrb   => Axi4LiteBus.WriteData.Strb,
+            s00_axi_wvalid  => Axi4LiteBus.WriteData.Valid,
+            s00_axi_wready  => Axi4LiteBus.WriteData.Ready,
+            s00_axi_bresp   => Axi4LiteBus.WriteResponse.Resp,
+            s00_axi_bvalid  => Axi4LiteBus.WriteResponse.Valid,
+            s00_axi_bready  => Axi4LiteBus.WriteResponse.Ready,
+            s00_axi_araddr  => Axi4LiteBus.ReadAddress.Addr,
+            s00_axi_arprot  => Axi4LiteBus.ReadAddress.Prot,
+            s00_axi_arvalid => Axi4LiteBus.ReadAddress.Valid,
+            s00_axi_arready => Axi4LiteBus.ReadAddress.Ready,
+            s00_axi_rdata   => Axi4LiteBus.ReadData.Data,
+            s00_axi_rresp   => Axi4LiteBus.ReadData.Resp,
+            s00_axi_rvalid  => Axi4LiteBus.ReadData.Valid,
+            s00_axi_rready  => Axi4LiteBus.ReadData.Ready
+        );
+
 
 end architecture TestHarness;
