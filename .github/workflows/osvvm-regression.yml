@@ -34,7 +34,7 @@ jobs:
           ghdl --version
 
       - name: Run OSVVM regression_test
-        run: tclsh script/regression.tcl
+        run: tclsh regression.tcl
 
 
       - name: Upload simulation results (optional)
