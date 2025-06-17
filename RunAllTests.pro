@@ -1,6 +1,3 @@
-TestSuite osvvm_demo
-
-
 analyze src/osvvm_regs_pkg.vhd
 analyze src/osvvm_regs.vhd
 
