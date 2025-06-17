@@ -63,7 +63,7 @@ begin
         ClearAlerts;
 
         Log("Write Control register");
-        addr  := x"00000008"
+        addr  := x"00000008";
         wdata := x"00001234";
         Write(Axi4MemRec, addr, wdata);
 
