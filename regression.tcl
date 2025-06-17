@@ -25,4 +25,5 @@ if {$::osvvm::ToolName eq "QuestaSim"} {
 }
 
 
-build RunAllTests.pro
+build src/src.pro
+build tb/tb.pro
