@@ -94,7 +94,7 @@ begin
     -- Clock generator
     ------------------------------------------------------------------------------------------------
 
-    Osvvm.TbUtilPkg.CreateClock(
+    Osvvm.ClockResetPkg.CreateClock(
         Clk    => axi_aclk,
         Period => AXI_CLK_PERIOD
     );
@@ -103,7 +103,7 @@ begin
     -- Reset generator
     ------------------------------------------------------------------------------------------------
 
-    Osvvm.TbUtilPkg.CreateReset(
+    Osvvm.ClockResetPkg.CreateReset(
         Reset       => axi_aresetn,
         ResetActive => '0',
         Clk         => axi_aclk,
