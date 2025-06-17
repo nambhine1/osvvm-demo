@@ -1,2 +1,2 @@
-analyze src/osvvm_regs_pkg.vhd
-analyze src/osvvm_regs.vhd
+analyze osvvm_regs_pkg.vhd
+analyze osvvm_regs.vhd
