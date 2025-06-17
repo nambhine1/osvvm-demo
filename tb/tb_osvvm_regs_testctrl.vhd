@@ -36,9 +36,6 @@ library osvvm_axi4;
 context osvvm_axi4.Axi4LiteContext;
 
 entity tb_osvvm_regs_testctrl is
-    generic(
-        REGS_BASEADDR : std_logic_vector(31 downto 0)
-    );
     port(
         -- Record Interfaces
         Axi4MemRec : inout AddressBusRecType;

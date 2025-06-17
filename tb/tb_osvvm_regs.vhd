@@ -42,7 +42,7 @@ architecture TestHarness of tb_regs_osvvm is
     -- Constants
     ------------------------------------------------------------------------------------------------
 
-    constant REGS_BASEADDR  : std_logic_vector(31 downto 0) := std_logic_vector(OSVVM_DEFAULT_BASEADDR);
+    
     constant AXI_ADDR_WIDTH : natural                       := 32;
     constant AXI_DATA_WIDTH : natural                       := 32;
     constant AXI_STRB_WIDTH : integer                       := AXI_DATA_WIDTH / 8;
@@ -54,9 +54,6 @@ architecture TestHarness of tb_regs_osvvm is
     ------------------------------------------------------------------------------------------------
 
     component tb_osvvm_regs_testctrl is
-        generic(
-            REGS_BASEADDR : std_logic_vector(31 downto 0)
-        );
         port(
             -- Record Interfaces
             Axi4MemRec : inout AddressBusRecType;
@@ -114,9 +111,6 @@ begin
     ------------------------------------------------------------------------------------------------
 
     testctrl_inst : tb_osvvm_regs_testctrl
-        generic map(
-            REGS_BASEADDR => REGS_BASEADDR
-        )
         port map(
             Axi4MemRec => Axi4MemRec,
             Clk        => axi_aclk,
